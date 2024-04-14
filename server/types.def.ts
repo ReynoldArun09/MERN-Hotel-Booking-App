@@ -17,3 +17,12 @@ declare global {
         export interface ProcessEnv extends z.infer<typeof env> {}
     }
 }
+
+
+export type UserModelType = {
+    _id: string;
+    email: string;
+    password: string;
+    firstName: string;
+    lastName: string
+  }
