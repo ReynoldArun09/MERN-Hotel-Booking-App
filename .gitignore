@@ -1,0 +1,9 @@
+# Server
+/server/node_modules
+/server/.env
+/server/.env.e2e
+/server/build
+
+# playwright
+/playwright/node_modules
+/playwright/tests-examples
