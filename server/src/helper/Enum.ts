@@ -10,9 +10,12 @@ export enum HttpStatusCode {
   
   export enum SuccessMessage {
     USER_REGISTERED = 'User registered successfully',
+    LOGIN_SUCCESS = 'User logged in successfully',
   }
   
   export enum ErrorMessage {
     USER_ALREADY_EXIST = "User already exist",
+    LOGIN_FAILURE = "Invalid email or password",
+    USER_NOT_FOUND = "Invalid email or password",
   }
   

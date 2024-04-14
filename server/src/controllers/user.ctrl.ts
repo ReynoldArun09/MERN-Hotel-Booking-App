@@ -33,3 +33,20 @@ export const RegisterUser = AsyncWrapper(
     })
   }
 );
+
+export const LoginUser = AsyncWrapper(async(req:Request, res:Response) => {
+  const {email} = req.body;
+  const findUser = await User.findOne({email})
+  if(!findUser) {
+      throw new AppError(ErrorMessage.USER_NOT_FOUND, HttpStatusCode.BAD_REQUEST)
+  }
+  const token = jwt.sign({userId: findUser.id}, process.env.SECRET, {
+      expiresIn: '1d'
+  })
+  res.cookie('booking.com', token, {
+      httpOnly: true,
+      secure: false,
+      maxAge: 86400000,
+  })
+  return res.status(HttpStatusCode.OK).json({success: true, message: SuccessMessage.LOGIN_SUCCESS})
+})

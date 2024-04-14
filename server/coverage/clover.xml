@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1713137879693" clover="3.2.0">
-  <project timestamp="1713137879694" name="All files">
-    <metrics statements="83" coveredstatements="77" conditionals="23" coveredconditionals="15" methods="12" coveredmethods="11" elements="118" coveredelements="103" complexity="0" loc="83" ncloc="83" packages="7" files="8" classes="8"/>
+<coverage generated="1713138693806" clover="3.2.0">
+  <project timestamp="1713138693806" name="All files">
+    <metrics statements="95" coveredstatements="89" conditionals="24" coveredconditionals="16" methods="14" coveredmethods="13" elements="133" coveredelements="118" complexity="0" loc="95" ncloc="95" packages="7" files="8" classes="8"/>
     <package name="src">
       <metrics statements="18" coveredstatements="18" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       <file name="app.ts" path="F:\MERN-Booking-app\server\src\app.ts">
@@ -27,9 +27,9 @@
       </file>
     </package>
     <package name="src.controllers">
-      <metrics statements="16" coveredstatements="16" conditionals="1" coveredconditionals="1" methods="2" coveredmethods="2"/>
+      <metrics statements="24" coveredstatements="24" conditionals="2" coveredconditionals="2" methods="4" coveredmethods="4"/>
       <file name="user.ctrl.ts" path="F:\MERN-Booking-app\server\src\controllers\user.ctrl.ts">
-        <metrics statements="16" coveredstatements="16" conditionals="1" coveredconditionals="1" methods="2" coveredmethods="2"/>
+        <metrics statements="24" coveredstatements="24" conditionals="2" coveredconditionals="2" methods="4" coveredmethods="4"/>
         <line num="1" count="1" type="stmt"/>
         <line num="3" count="1" type="stmt"/>
         <line num="4" count="1" type="stmt"/>
@@ -46,12 +46,20 @@
         <line num="20" count="1" type="stmt"/>
         <line num="24" count="1" type="stmt"/>
         <line num="30" count="1" type="stmt"/>
+        <line num="37" count="2" type="stmt"/>
+        <line num="38" count="2" type="stmt"/>
+        <line num="39" count="2" type="stmt"/>
+        <line num="40" count="2" type="cond" truecount="1" falsecount="0"/>
+        <line num="41" count="1" type="stmt"/>
+        <line num="43" count="1" type="stmt"/>
+        <line num="46" count="1" type="stmt"/>
+        <line num="51" count="1" type="stmt"/>
       </file>
     </package>
     <package name="src.helper">
-      <metrics statements="12" coveredstatements="12" conditionals="6" coveredconditionals="6" methods="3" coveredmethods="3"/>
+      <metrics statements="15" coveredstatements="15" conditionals="6" coveredconditionals="6" methods="3" coveredmethods="3"/>
       <file name="Enum.ts" path="F:\MERN-Booking-app\server\src\helper\Enum.ts">
-        <metrics statements="12" coveredstatements="12" conditionals="6" coveredconditionals="6" methods="3" coveredmethods="3"/>
+        <metrics statements="15" coveredstatements="15" conditionals="6" coveredconditionals="6" methods="3" coveredmethods="3"/>
         <line num="1" count="1" type="cond" truecount="2" falsecount="0"/>
         <line num="2" count="1" type="stmt"/>
         <line num="3" count="1" type="stmt"/>
@@ -62,8 +70,11 @@
         <line num="8" count="1" type="stmt"/>
         <line num="11" count="1" type="cond" truecount="2" falsecount="0"/>
         <line num="12" count="1" type="stmt"/>
-        <line num="15" count="1" type="cond" truecount="2" falsecount="0"/>
-        <line num="16" count="1" type="stmt"/>
+        <line num="13" count="1" type="stmt"/>
+        <line num="16" count="1" type="cond" truecount="2" falsecount="0"/>
+        <line num="17" count="1" type="stmt"/>
+        <line num="18" count="1" type="stmt"/>
+        <line num="19" count="1" type="stmt"/>
       </file>
     </package>
     <package name="src.middleware">
@@ -75,11 +86,11 @@
         <line num="5" count="1" type="stmt"/>
         <line num="10" count="0" type="stmt"/>
         <line num="13" count="1" type="stmt"/>
-        <line num="14" count="1" type="cond" truecount="3" falsecount="1"/>
-        <line num="16" count="1" type="cond" truecount="0" falsecount="1"/>
+        <line num="14" count="2" type="cond" truecount="3" falsecount="1"/>
+        <line num="16" count="2" type="cond" truecount="0" falsecount="1"/>
         <line num="17" count="0" type="stmt"/>
-        <line num="22" count="1" type="cond" truecount="1" falsecount="0"/>
-        <line num="23" count="1" type="stmt"/>
+        <line num="22" count="2" type="cond" truecount="1" falsecount="0"/>
+        <line num="23" count="2" type="stmt"/>
         <line num="28" count="0" type="cond" truecount="0" falsecount="1"/>
         <line num="29" count="0" type="stmt"/>
         <line num="33" count="0" type="stmt"/>
@@ -102,31 +113,32 @@
       </file>
     </package>
     <package name="src.routes">
-      <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       <file name="userRoute.ts" path="F:\MERN-Booking-app\server\src\routes\userRoute.ts">
-        <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
         <line num="4" count="1" type="stmt"/>
         <line num="6" count="1" type="stmt"/>
-        <line num="9" count="1" type="stmt"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="10" count="1" type="stmt"/>
       </file>
     </package>
     <package name="src.utils">
       <metrics statements="9" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="4"/>
       <file name="AppError.ts" path="F:\MERN-Booking-app\server\src\utils\AppError.ts">
         <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-        <line num="6" count="1" type="stmt"/>
-        <line num="7" count="1" type="stmt"/>
+        <line num="6" count="2" type="stmt"/>
+        <line num="7" count="2" type="stmt"/>
         <line num="11" count="1" type="stmt"/>
       </file>
       <file name="AsyncWrapper.ts" path="F:\MERN-Booking-app\server\src\utils\AsyncWrapper.ts">
         <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
         <line num="4" count="1" type="stmt"/>
-        <line num="5" count="2" type="stmt"/>
-        <line num="6" count="2" type="stmt"/>
-        <line num="7" count="2" type="stmt"/>
-        <line num="9" count="1" type="stmt"/>
+        <line num="5" count="4" type="stmt"/>
+        <line num="6" count="4" type="stmt"/>
+        <line num="7" count="4" type="stmt"/>
+        <line num="9" count="2" type="stmt"/>
         <line num="13" count="1" type="stmt"/>
       </file>
     </package>
