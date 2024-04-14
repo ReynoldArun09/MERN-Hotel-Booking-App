@@ -3,6 +3,7 @@
 /server/.env
 /server/.env.e2e
 /server/build
+/server/coverage
 
 # playwright
 /playwright/node_modules
