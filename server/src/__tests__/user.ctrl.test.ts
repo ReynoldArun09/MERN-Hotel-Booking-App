@@ -32,7 +32,6 @@ const InvalidloginBody = {
   password: "invalidpass",
 };
 
-
 describe("POST /api/user/register-user", () => {
   it("should allow user to register account", async () => {
     const response = await request(app)
@@ -44,19 +43,20 @@ describe("POST /api/user/register-user", () => {
   });
 
   it("should not allow user to register account if user already exist", async () => {
-    const response = await request(app).post("/api/user/register-user").send(requestBody);
-    expect(400)
+    const response = await request(app)
+      .post("/api/user/register-user")
+      .send(requestBody);
+    expect(400);
     expect(response.body.success).toBe(false);
     expect(response.body.message).toBe(ErrorMessage.USER_ALREADY_EXIST);
   });
 });
 
-
 describe("POST /api/user/login", () => {
   it("should allow registered user to login", async () => {
-   
-
-    const response = await request(app).post("/api/user/login-user").send(loginBody);
+    const response = await request(app)
+      .post("/api/user/login-user")
+      .send(loginBody);
 
     expect(response.statusCode).toBe(200);
     expect(response.body.success).toBe(true);
@@ -64,8 +64,9 @@ describe("POST /api/user/login", () => {
   });
 
   it("should not allow login with invalid credentials", async () => {
-   
-    const response = await request(app).post("/api/user/login-user").send(InvalidloginBody);
+    const response = await request(app)
+      .post("/api/user/login-user")
+      .send(InvalidloginBody);
 
     expect(response.statusCode).toBe(400);
     expect(response.body.success).toBe(false);

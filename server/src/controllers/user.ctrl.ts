@@ -4,6 +4,7 @@ import User from "../models/user";
 import AppError from "../utils/AppError";
 import { ErrorMessage, HttpStatusCode, SuccessMessage } from "../helper/Enum";
 import jwt from 'jsonwebtoken'
+import bcrypt from 'bcryptjs'
 
 export const RegisterUser = AsyncWrapper(
   async (req: Request, res: Response) => {
@@ -35,11 +36,19 @@ export const RegisterUser = AsyncWrapper(
 );
 
 export const LoginUser = AsyncWrapper(async(req:Request, res:Response) => {
-  const {email} = req.body;
+  const {email, password} = req.body;
   const findUser = await User.findOne({email})
   if(!findUser) {
       throw new AppError(ErrorMessage.USER_NOT_FOUND, HttpStatusCode.BAD_REQUEST)
   }
+
+
+ const comparePassword = bcrypt.compare(password, findUser.password)
+
+  if(!comparePassword) {
+      throw new AppError(ErrorMessage.LOGIN_FAILURE, HttpStatusCode.BAD_REQUEST)
+  }
+
   const token = jwt.sign({userId: findUser.id}, process.env.SECRET, {
       expiresIn: '1d'
   })
