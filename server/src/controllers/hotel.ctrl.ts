@@ -18,3 +18,10 @@ export const CreateHotel = AsyncWrapper(async (req: Request, res: Response) => {
 
   res.status(200).json({success: true, data: hotel})
 });
+
+export const GetAllHotels = AsyncWrapper(
+    async (req: Request, res: Response) => {
+      const hotels = await Hotel.find().sort("-lastUpdated");
+      res.json(hotels);
+    }
+);

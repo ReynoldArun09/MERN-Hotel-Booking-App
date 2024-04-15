@@ -1,7 +1,7 @@
 import {Router} from 'express'
 import multer from 'multer';
 import { AuthMiddleware } from '../middleware/AuthMiddleware';
-import { CreateHotel } from '../controllers/hotel.ctrl';
+import { CreateHotel, GetAllHotels } from '../controllers/hotel.ctrl';
 
 const storage = multer.memoryStorage();
 const upload = multer({
@@ -14,5 +14,6 @@ const upload = multer({
 const hotelRoutes = Router()
 
 hotelRoutes.post('/add', AuthMiddleware, upload.array("imageFiles", 6), CreateHotel)
+hotelRoutes.get('/', GetAllHotels)
 
 export default hotelRoutes
