@@ -7,7 +7,7 @@ const userRouter = Router();
 userRouter.post('/register-user', RegisterUser)
 userRouter.post('/login-user', LoginUser)
 userRouter.post('/logout-user', LogoutUser)
-userRouter.post('/validate-user', AuthMiddleware, ValidateUser)
+userRouter.get('/validate-user', AuthMiddleware, ValidateUser)
 
 
 export default userRouter;
