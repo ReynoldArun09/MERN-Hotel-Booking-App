@@ -2,10 +2,11 @@
   "name": "server",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "./src/index.ts",
   "scripts": {
     "dev": "nodemon ./src/index.ts",
-    "test": "cross-env DOTENV_CONFIG_PATH=.env.e2e jest --coverage"
+    "test": "cross-env DOTENV_CONFIG_PATH=.env.e2e jest --coverage",
+    "e2e": "cross-env DOTENV_CONFIG_PATH=.env.e2e nodemon"
   },
   "keywords": [],
   "author": "",

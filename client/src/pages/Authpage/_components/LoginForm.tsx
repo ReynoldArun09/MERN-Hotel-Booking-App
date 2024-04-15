@@ -30,7 +30,7 @@ export default function LoginForm() {
     mutationFn: LoginUserApi,
     onSuccess: async() => {
       await queryClient.invalidateQueries({queryKey: ["ValidateToken"]});
-      toast.success("Login successful")
+      toast.success("Login successfull")
       navigate(location.state?.from?.pathname || "/");
     }
   })

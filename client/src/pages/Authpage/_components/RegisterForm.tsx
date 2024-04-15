@@ -15,6 +15,7 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 
 import { useLocation, useNavigate } from "react-router-dom";
 import { RegisterUserApi } from "../_api/AuthApi";
+import {toast} from 'sonner'
 
 export default function RegisterForm() {
   const queryClient = useQueryClient()
@@ -32,6 +33,7 @@ export default function RegisterForm() {
     mutationFn: RegisterUserApi,
     onSuccess: async() => {
       await queryClient.invalidateQueries({queryKey: ["ValidateToken"]});
+      toast.success("User registered")
       navigate(location.state?.from?.pathname || "/");
     }
   })
