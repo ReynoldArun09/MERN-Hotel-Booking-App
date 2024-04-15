@@ -44,7 +44,7 @@ export const LogoutUserapi = async () => {
   });
 
   if (!response.ok) {
-    throw new Error("failed to logout");
+    throw new Error("Failed to logout");
   }
 
   return response.json();
