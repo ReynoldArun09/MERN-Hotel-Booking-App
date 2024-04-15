@@ -15,3 +15,19 @@ export const CreateHotel = async(formData:FormData) => {
 
       return data
 }
+
+
+export const GetAllUsersHotels = async() => {
+    const response = await fetch(`${BASE_URL}/hotel/users`, {
+        method: 'GET',
+        credentials: 'include',
+    });
+
+
+    if(!response.ok) {
+        throw new Error("Error fetching hotel")
+    }
+
+
+    return response.json()
+}

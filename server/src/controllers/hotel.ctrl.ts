@@ -25,3 +25,10 @@ export const GetAllHotels = AsyncWrapper(
       res.json(hotels);
     }
 );
+
+export const GetAllUserHotels = AsyncWrapper(
+  async (req: Request, res: Response) => {
+    const hotels = await Hotel.find({ userId: req?.userId })
+    res.json(hotels);
+  }
+);

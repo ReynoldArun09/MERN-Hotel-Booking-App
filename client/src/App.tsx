@@ -6,6 +6,11 @@ import Resetpage from "./pages/Authpage/Resetpage";
 import Registerpage from "./pages/Authpage/Registerpage";
 import { useAppContext } from "./context/AppContext";
 import AddHotel from "./pages/Hotelpage/AddHotel";
+import MyHotels from "./pages/Hotelpage/MyHotels";
+import EditDetails from "./pages/Hotelpage/EditDetails";
+import Detailspage from "./pages/Hotelpage/Detailspage";
+import Bookingpage from "./pages/Bookingpage/Bookingpage";
+import Searchpage from "./pages/Searchpage/Searchpage";
 
 export default function App() {
   const {isLoggedIn} = useAppContext()
@@ -17,6 +22,11 @@ export default function App() {
         <Route path="/register" element={!isLoggedIn ? <Registerpage />: <Navigate to="/"/>} />
         <Route path="/reset-password" element={!isLoggedIn ? <Resetpage />: <Navigate to="/"/>} />
         <Route path="/add-hotel" element={isLoggedIn ? <AddHotel />: <Navigate to="/"/>} />
+        <Route path="/my-hotels" element={isLoggedIn ? <MyHotels />: <Navigate to="/"/>} />
+        <Route path="/my-bookings" element={isLoggedIn ? <Bookingpage />: <Navigate to="/"/>} />
+        <Route path="/edit-hotel/:id" element={isLoggedIn ? <EditDetails />: <Navigate to="/"/>} />
+        <Route path="/detail/:id" element={isLoggedIn ? <Detailspage />: <Navigate to="/"/>} />
+        <Route path="/search" element={<Searchpage />} />
       </Route>
     </Routes>
   );

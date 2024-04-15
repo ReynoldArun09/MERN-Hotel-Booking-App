@@ -16,4 +16,4 @@ const port = process.env.PORT
 MongoConnection()
 app.listen(port, () => {
   AppLogger.info(`Server started on port ${port}`);
-}); 
+});  
