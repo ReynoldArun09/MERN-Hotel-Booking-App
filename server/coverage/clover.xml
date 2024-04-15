@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1713171734746" clover="3.2.0">
-  <project timestamp="1713171734747" name="All files">
-    <metrics statements="170" coveredstatements="141" conditionals="30" coveredconditionals="17" methods="28" coveredmethods="20" elements="228" coveredelements="178" complexity="0" loc="170" ncloc="170" packages="7" files="15" classes="15"/>
+<coverage generated="1713174195716" clover="3.2.0">
+  <project timestamp="1713174195716" name="All files">
+    <metrics statements="175" coveredstatements="145" conditionals="30" coveredconditionals="17" methods="30" coveredmethods="22" elements="235" coveredelements="184" complexity="0" loc="175" ncloc="175" packages="7" files="15" classes="15"/>
     <package name="src">
       <metrics statements="20" coveredstatements="20" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       <file name="app.ts" path="F:\MERN-Booking-app\server\src\app.ts">
@@ -29,9 +29,9 @@
       </file>
     </package>
     <package name="src.controllers">
-      <metrics statements="55" coveredstatements="37" conditionals="7" coveredconditionals="2" methods="13" coveredmethods="6"/>
+      <metrics statements="59" coveredstatements="40" conditionals="7" coveredconditionals="2" methods="15" coveredmethods="8"/>
       <file name="hotel.ctrl.ts" path="F:\MERN-Booking-app\server\src\controllers\hotel.ctrl.ts">
-        <metrics statements="13" coveredstatements="4" conditionals="4" coveredconditionals="0" methods="2" coveredmethods="0"/>
+        <metrics statements="17" coveredstatements="7" conditionals="4" coveredconditionals="0" methods="4" coveredmethods="2"/>
         <line num="2" count="2" type="stmt"/>
         <line num="4" count="2" type="stmt"/>
         <line num="5" count="2" type="stmt"/>
@@ -45,6 +45,10 @@
         <line num="16" count="0" type="stmt"/>
         <line num="17" count="0" type="stmt"/>
         <line num="19" count="0" type="stmt"/>
+        <line num="22" count="2" type="stmt"/>
+        <line num="23" count="1" type="stmt"/>
+        <line num="24" count="1" type="stmt"/>
+        <line num="25" count="0" type="stmt"/>
       </file>
       <file name="uploadImages.ts" path="F:\MERN-Booking-app\server\src\controllers\uploadImages.ts">
         <metrics statements="9" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="0"/>
@@ -192,9 +196,9 @@
       </file>
     </package>
     <package name="src.routes">
-      <metrics statements="20" coveredstatements="20" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <metrics statements="21" coveredstatements="21" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       <file name="hotelRoute.ts" path="F:\MERN-Booking-app\server\src\routes\hotelRoute.ts">
-        <metrics statements="9" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <metrics statements="10" coveredstatements="10" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="1" count="2" type="stmt"/>
         <line num="2" count="2" type="stmt"/>
         <line num="3" count="2" type="stmt"/>
@@ -203,7 +207,8 @@
         <line num="7" count="2" type="stmt"/>
         <line num="14" count="2" type="stmt"/>
         <line num="16" count="2" type="stmt"/>
-        <line num="18" count="2" type="stmt"/>
+        <line num="17" count="2" type="stmt"/>
+        <line num="19" count="2" type="stmt"/>
       </file>
       <file name="userRoute.ts" path="F:\MERN-Booking-app\server\src\routes\userRoute.ts">
         <metrics statements="11" coveredstatements="11" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
@@ -231,9 +236,9 @@
       <file name="AsyncWrapper.ts" path="F:\MERN-Booking-app\server\src\utils\AsyncWrapper.ts">
         <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
         <line num="4" count="2" type="stmt"/>
-        <line num="5" count="10" type="stmt"/>
-        <line num="6" count="5" type="stmt"/>
-        <line num="7" count="5" type="stmt"/>
+        <line num="5" count="12" type="stmt"/>
+        <line num="6" count="6" type="stmt"/>
+        <line num="7" count="6" type="stmt"/>
         <line num="9" count="2" type="stmt"/>
         <line num="13" count="2" type="stmt"/>
       </file>
