@@ -30,8 +30,8 @@ const ErrorMiddleware: ErrorRequestHandler = (error, req, res, next) => {
       .status(statusCode)
       .json({ success: false, message: error.message });
   }
-  console.log(error.message)
-  res.status(statusCode).send(error.message);
+  
+  return res.status(statusCode).json({ success: false, message: error.message });
 };
 
 export default ErrorMiddleware;
