@@ -59,3 +59,14 @@ export const LoginUser = AsyncWrapper(async(req:Request, res:Response) => {
   })
   return res.status(HttpStatusCode.OK).json({success: true, message: SuccessMessage.LOGIN_SUCCESS})
 })
+
+
+export const LogoutUser = AsyncWrapper(async(req:Request, res:Response) => {
+  res.cookie("booking.com", "", {
+      expires: new Date(0),
+      httpOnly: true,
+      secure: false,
+      maxAge: 0,  
+  })
+  return res.status(HttpStatusCode.OK).json({success: true, message: SuccessMessage.LOGGED_OUT_SUCCESS})
+})

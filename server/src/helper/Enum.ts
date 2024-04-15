@@ -11,6 +11,7 @@ export enum HttpStatusCode {
   export enum SuccessMessage {
     USER_REGISTERED = 'User registered successfully',
     LOGIN_SUCCESS = 'User logged in successfully',
+    LOGGED_OUT_SUCCESS = 'User logged out successfully',
   }
   
   export enum ErrorMessage {

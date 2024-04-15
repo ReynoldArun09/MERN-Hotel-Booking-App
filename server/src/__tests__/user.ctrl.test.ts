@@ -73,3 +73,14 @@ describe("POST /api/user/login", () => {
     expect(response.body.message).toBe(ErrorMessage.USER_NOT_FOUND);
   });
 });
+
+
+describe("POST /api/user/logout", () => {
+  it("should logout user", async () => {
+    const response = await request(app).post("/api/user/logout-user").set(
+      "Cookie",
+      "booking.com=''",
+    );
+    expect(response.statusCode).toBe(200);
+  });
+});
