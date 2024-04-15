@@ -70,3 +70,7 @@ export const LogoutUser = AsyncWrapper(async(req:Request, res:Response) => {
   })
   return res.status(HttpStatusCode.OK).json({success: true, message: SuccessMessage.LOGGED_OUT_SUCCESS})
 })
+
+export const ValidateUser = AsyncWrapper(async(req:Request, res:Response) => {
+  res.status(200).send({ userId: req.userId });
+})

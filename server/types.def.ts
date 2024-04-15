@@ -18,6 +18,14 @@ declare global {
   }
 }
 
+declare global {
+  namespace Express {
+    interface Request {
+      userId: string
+    }
+  }
+}
+
 export type UserModelType = {
   _id: string;
   email: string;

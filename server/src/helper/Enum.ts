@@ -18,5 +18,6 @@ export enum HttpStatusCode {
     USER_ALREADY_EXIST = "User already exist",
     LOGIN_FAILURE = "Invalid email or password",
     USER_NOT_FOUND = "Invalid email or password",
+    INVALID_TOKEN = "Invalid token",
   }
   
