@@ -25,7 +25,7 @@ export default function App() {
         <Route path="/my-hotels" element={isLoggedIn ? <MyHotels />: <Navigate to="/"/>} />
         <Route path="/my-bookings" element={isLoggedIn ? <Bookingpage />: <Navigate to="/"/>} />
         <Route path="/edit-hotel/:id" element={isLoggedIn ? <EditDetails />: <Navigate to="/"/>} />
-        <Route path="/detail/:id" element={isLoggedIn ? <Detailspage />: <Navigate to="/"/>} />
+        <Route path="/detail/:id" element={<Detailspage />} />
         <Route path="/search" element={<Searchpage />} />
       </Route>
     </Routes>
