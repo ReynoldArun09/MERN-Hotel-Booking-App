@@ -6,6 +6,7 @@ import { BrowserRouter } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { AppContextProvider } from "./context/AppContext.tsx";
 import { Toaster } from "sonner";
+import { SearchContextProvider } from "./context/SearchContext.tsx";
 export const BASE_URL = import.meta.env.VITE_BASE_URL;
 
 const queryClient = new QueryClient({
@@ -20,10 +21,12 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <QueryClientProvider client={queryClient}>
       <AppContextProvider>
-        <BrowserRouter>
+       <SearchContextProvider>
+       <BrowserRouter>
           <App />
           <Toaster />
         </BrowserRouter>
+       </SearchContextProvider>
       </AppContextProvider>
     </QueryClientProvider>
   </React.StrictMode>
