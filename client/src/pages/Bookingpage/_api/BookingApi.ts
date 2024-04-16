@@ -1,3 +1,4 @@
+
 import { BASE_URL } from "@/main"
 import { BookingFormData, PaymnetIntentResponse, UserType } from "@/types.def"
 
@@ -55,3 +56,15 @@ export const createPaymentIntent = async (
       throw new Error("Error booking room");
     }
   };
+
+  export const MyBooking = async() => {
+    const response = await fetch(`${BASE_URL}/hotel/mybookings`, {
+        credentials: "include"
+    })
+    if(!response.ok) {
+        throw new Error(response.statusText)
+    }
+
+    const responseBody = response.json()
+    return responseBody
+}

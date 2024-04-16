@@ -1,7 +1,7 @@
 import {Router} from 'express'
 import multer from 'multer';
 import { AuthMiddleware } from '../middleware/AuthMiddleware';
-import { CreateHotel, GetAllHotels, GetAllUserHotels, GetHotelById, GetUserHotelById, UpdateHotel } from '../controllers/hotel.ctrl';
+import { CreateHotel, GetAllHotels, GetAllUserHotels, GetHotelById, GetUserHotelById, MyBookings, UpdateHotel } from '../controllers/hotel.ctrl';
 import { SeachHotels } from '../controllers/search.ctrl';
 import { BookingPaymentIntent, Bookings } from '../controllers/stripe';
 
@@ -24,6 +24,7 @@ hotelRoutes.get("/user/:id", AuthMiddleware, GetUserHotelById);
 hotelRoutes.get("/:id", GetHotelById);
 hotelRoutes.post("/:hotelId/bookings/payment-intent", AuthMiddleware, BookingPaymentIntent);
 hotelRoutes.post("/:hotelId/bookings", AuthMiddleware, Bookings);
+hotelRoutes.post("/mybookings", AuthMiddleware, MyBookings);
 
 
 export default hotelRoutes

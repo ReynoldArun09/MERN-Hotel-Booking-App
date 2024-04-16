@@ -39,6 +39,7 @@ export default function Bookingpage() {
     queryFn: fetchCurrentUser
   })
 
+  
 
   const {data: hotel} = useQuery({
     queryKey: ['fetchMyHotels'],

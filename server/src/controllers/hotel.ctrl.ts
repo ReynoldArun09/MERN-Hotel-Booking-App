@@ -82,3 +82,32 @@ export const GetHotelById = AsyncWrapper(
     res.json(hotel);
   }
 );
+
+
+export const MyBookings = AsyncWrapper(
+  async (req: Request, res: Response) => {
+    const hotels = await Hotel.find({
+      bookings: { $elemMatch: { userId: req.userId } },
+    });
+  
+    const results = hotels.map((hotel) => {
+      const userBookings = hotel.bookings.filter(
+        (booking) => booking.userId === req.userId
+      );
+  
+      const hotelWithUserBookings: HotelModeltype = {
+        ...hotel.toObject(),
+        bookings: userBookings,
+      };
+  
+      return hotelWithUserBookings;
+    });
+  
+    res.status(200).send(results);
+  }
+);
+
+
+
+ 
+
