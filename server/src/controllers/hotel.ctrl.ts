@@ -74,3 +74,11 @@ export const GetUserHotelById = AsyncWrapper(
     res.json(hotel);
   }
 );
+
+export const GetHotelById = AsyncWrapper(
+  async (req: Request, res: Response) => {
+    const id = req.params.id;
+    const hotel = await Hotel.findById(id);
+    res.json(hotel);
+  }
+);

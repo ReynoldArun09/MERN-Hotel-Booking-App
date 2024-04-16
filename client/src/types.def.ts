@@ -68,3 +68,16 @@ export type HotelType = {
     childCount: number;
   };
   
+
+  export type GuestFormProps = {
+    hotelId: string;
+    pricePerNight: number;
+  };
+  
+  export type GuestInfoFormData = {
+    checkIn: Date;
+    checkOut: Date;
+    adultCount: number;
+    childCount: number;
+  };
+    
