@@ -8,7 +8,8 @@ import DetailsSEction from "./DetailsSEction";
 import { useEffect } from "react";
 
 import { Button } from "@/components/ui/button";
-import { HotelFormData, HotelType } from "@/types";
+import { HotelFormData, HotelType } from "@/types.def";
+
 
 
 
@@ -21,6 +22,8 @@ type Props = {
 const ManageHotelForm = ({ onSave, isLoading, hotel }: Props) => {
   const formMethods = useForm<HotelFormData>();
   const { handleSubmit, reset } = formMethods;
+
+
 
   useEffect(() => {
     reset(hotel)

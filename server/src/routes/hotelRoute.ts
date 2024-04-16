@@ -1,7 +1,7 @@
 import {Router} from 'express'
 import multer from 'multer';
 import { AuthMiddleware } from '../middleware/AuthMiddleware';
-import { CreateHotel, GetAllHotels, GetAllUserHotels } from '../controllers/hotel.ctrl';
+import { CreateHotel, GetAllHotels, GetAllUserHotels, GetUserHotelById, UpdateHotel } from '../controllers/hotel.ctrl';
 import { SeachHotels } from '../controllers/search.ctrl';
 
 const storage = multer.memoryStorage();
@@ -18,5 +18,7 @@ hotelRoutes.get('/search', SeachHotels)
 hotelRoutes.get('/', GetAllHotels)
 hotelRoutes.post('/add', AuthMiddleware, upload.array("imageFiles", 6), CreateHotel)
 hotelRoutes.get('/users', AuthMiddleware, GetAllUserHotels)
+hotelRoutes.put("/:hotelId", AuthMiddleware, upload.array("imageFiles"), UpdateHotel);
+hotelRoutes.get("/:id", AuthMiddleware, GetUserHotelById);
 
 export default hotelRoutes
