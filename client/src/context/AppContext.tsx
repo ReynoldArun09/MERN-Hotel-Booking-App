@@ -2,11 +2,17 @@ import { BASE_URL } from "@/main";
 import { useQuery } from "@tanstack/react-query";
 import { createContext, useContext } from "react";
 
+
 export type AppContextType = {
   isLoggedIn: boolean;
+
 };
 
+
+
 export const AppContext = createContext<AppContextType | undefined>(undefined);
+
+
 
 export const AppContextProvider = ({
   children,
@@ -29,8 +35,10 @@ export const AppContextProvider = ({
     retry: false,
   });
 
+
+
   return (
-    <AppContext.Provider value={{ isLoggedIn: !isError }}>
+    <AppContext.Provider value={{ isLoggedIn: !isError}}>
       {children}
     </AppContext.Provider>
   );

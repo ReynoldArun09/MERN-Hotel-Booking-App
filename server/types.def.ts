@@ -32,6 +32,7 @@ export type UserModelType = {
   password: string;
   firstName: string;
   lastName: string;
+  
 };
 
 export type HotelModeltype = {
@@ -49,4 +50,25 @@ export type HotelModeltype = {
   starRating: number;
   imageUrls: string[];
   lastUpdated: Date;
+  bookings: BookingType[];
+};
+
+export type PaymnetIntentResponse = {
+  paymentIntentId: string;
+  clientSecret: string;
+  totalCost: number;
+};
+
+
+export type BookingType = {
+  _id: string;
+  userId: string;
+  firstName: string;
+  lastName: string;
+  email: string;
+  adultCount: number;
+  childCount: number;
+  checkIn: Date;
+  checkOut: Date;
+  totalCost: number;
 };

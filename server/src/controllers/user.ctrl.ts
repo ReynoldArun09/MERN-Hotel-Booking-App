@@ -74,3 +74,13 @@ export const LogoutUser = AsyncWrapper(async(req:Request, res:Response) => {
 export const ValidateUser = AsyncWrapper(async(req:Request, res:Response) => {
   res.status(200).send({ userId: req.userId });
 })
+
+export const GetUser = AsyncWrapper(async(req:Request, res:Response) => {
+    const userId = req.userId
+    const user = await User.findById(userId).select("-password")
+
+    if(!user) {
+      throw new AppError(ErrorMessage.USER_NOT_FOUND, HttpStatusCode.BAD_REQUEST)
+    }
+    return res.status(HttpStatusCode.OK).json(user)
+})

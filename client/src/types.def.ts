@@ -81,3 +81,41 @@ export type HotelType = {
     childCount: number;
   };
     
+
+  export type BookingDetailsType = {
+    checkIn: Date;
+    checkOut: Date;
+    adultCount: number;
+    childCount: number;
+    numberOfNights: number;
+    hotel: HotelType;
+  };
+
+  export type UserType = {
+    _id: string;
+    email: string;
+    password: string;
+    firstName: string;
+    lastName: string;
+  };
+  
+
+  export type BookingFormData = {
+    firstName: string;
+    lastName: string;
+    email: string;
+    hotelId: string;
+    adultCount: number;
+    childCount: number;
+    checkIn: string;
+    checkOut: string;
+    paymentIntentId: string;
+    totalCost: number
+}
+
+  export type PaymnetIntentResponse = {
+    paymentIntentId: string;
+    clientSecret: string;
+    totalCost: number;
+  };
+  
