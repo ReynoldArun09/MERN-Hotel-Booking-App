@@ -29,8 +29,19 @@ export default function Search() {
     navigate('/search')
   }
 
+
+  const clearSubmit = (event:FormEvent) => {
+    event.preventDefault()
+    setDestination('')
+    setAdultCount(0)
+    setChildCount(0)
+    setCheckIn(new Date())
+    setCheckOut(new Date())
+    
+  }
+
   return (
-    <form onSubmit={handleSubmit} className="p-5 rounded shadow-lg border-[2px] grid grid-cols-2 lg:grid-cols-3 2xl:grid-cols-5 items-center gap-4">
+    <form className="p-5 rounded shadow-lg border-[2px] grid grid-cols-2 lg:grid-cols-3 2xl:grid-cols-5 items-center gap-4">
       <div className="flex rounded-[4px] flex-row items-center flex-1 bg-white">
         <Input
           value={destination}
@@ -93,8 +104,8 @@ export default function Search() {
         />
       </div>
       <div className="flex gap-1">
-        <Button className="w-2/3 h-full p-3 font-bold text-white rounded-[4px]">Search</Button>
-        <Button className="w-1/3 h-full p-3 font-bold text-white rounded-[4px]">Clear</Button>
+        <Button className="w-2/3 h-full p-3 font-bold text-white rounded-[4px]" type="submit" onClick={handleSubmit}>Search</Button>
+        <Button className="w-1/3 h-full p-3 font-bold text-white rounded-[4px]" type="submit" onClick={clearSubmit}>Clear</Button>
       </div>
     </form>
   );

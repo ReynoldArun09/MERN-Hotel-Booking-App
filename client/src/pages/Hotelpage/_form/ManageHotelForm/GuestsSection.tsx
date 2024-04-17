@@ -1,9 +1,9 @@
 import { useFormContext } from "react-hook-form";
-
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { ErrorMessage } from "@hookform/error-message";
-import { HotelFormData } from "@/types";
+import { HotelFormData } from "@/types.def";
+
 
 
 export default function GuestsSection() {

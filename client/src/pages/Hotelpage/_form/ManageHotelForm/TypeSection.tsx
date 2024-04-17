@@ -2,8 +2,8 @@ import { useFormContext } from "react-hook-form";
 import { ErrorMessage } from "@hookform/error-message";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { HotelFormData } from "@/types";
 import { hotelTypes } from "@/utils/hotelsOptions";
+import { HotelFormData } from "@/types.def";
 
 export default function TypeSection() {
   const {

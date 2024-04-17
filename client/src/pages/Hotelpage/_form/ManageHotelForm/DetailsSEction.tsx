@@ -2,7 +2,8 @@ import { useFormContext } from "react-hook-form"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { ErrorMessage } from "@hookform/error-message"
-import { HotelFormData } from "@/types"
+import { HotelFormData } from "@/types.def"
+
 
 
 export default function DetailsSEction() {
@@ -69,9 +70,9 @@ export default function DetailsSEction() {
         Price Per Night
         <Input
           type="number"
-          min={1}
+          min={1200}
           className="border rounded w-full py-1 px-2 font-normal"
-          {...register("pricePerNight", { required: "This field is required" })}
+          {...register("pricePerNight", { required: "This field is required", min: 1200 })}
         ></Input>
         {errors.pricePerNight && (
           <span className="text-red-500">

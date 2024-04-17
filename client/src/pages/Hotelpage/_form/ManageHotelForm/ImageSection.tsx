@@ -1,7 +1,8 @@
 import { useFormContext } from "react-hook-form";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { HotelFormData } from "@/types";
+import { HotelFormData } from "@/types.def";
+
 
 
 const ImagesSection = () => {

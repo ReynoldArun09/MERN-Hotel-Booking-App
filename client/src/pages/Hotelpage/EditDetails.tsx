@@ -1,31 +1,34 @@
-
 import { useMutation, useQuery } from "@tanstack/react-query";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import ManageHotelForm from "./_form/ManageHotelForm/ManageHotelForm";
 import { fetchMyHotelById, UpdateMyHotelById } from "./_api/HotelApi";
-
+import { toast } from "sonner";
 
 export default function EditDetails() {
-  const {hotelId} = useParams()
-  const {data:hotel} = useQuery({
+  const navigate = useNavigate();
+  const { hotelId } = useParams();
+  const { data: hotel } = useQuery({
     queryFn: () => fetchMyHotelById(hotelId || ""),
-    queryKey: ['fetchMyHotels', hotelId],
-    enabled: !!hotelId
-  })
+    queryKey: ["fetchMyHotels", hotelId],
+    enabled: !!hotelId,
+  });
 
-
-
-  const {mutate, isPending} = useMutation({
+  const { mutate, isPending } = useMutation({
     mutationFn: UpdateMyHotelById,
-    onSuccess: () => {},
-    onError: () => {}
-  })
+    onSuccess: () => {
+      toast.success("Hotel Edited");
+      navigate("/hotels");
+    },
+    onError: (error) => {
+      toast.error(error.message);
+    },
+  });
 
   const handleSave = (formData: FormData) => {
-    mutate(formData)
-  }
+    mutate(formData);
+  };
 
   return (
-    <ManageHotelForm hotel={hotel} isLoading={isPending} onSave={handleSave}/>
-  )
+    <ManageHotelForm hotel={hotel} isLoading={isPending} onSave={handleSave} />
+  );
 }

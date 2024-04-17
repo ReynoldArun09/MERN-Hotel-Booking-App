@@ -12,9 +12,12 @@ export const LoginUserApi = async (formData: LoginFormType) => {
   });
 
   if (!response.ok) {
-    throw new Error("Failed to login");
+    const errorData = await response.json();
+    throw new Error(errorData.message);
   }
-  return response.json();
+
+  const responseBody = await response.json();
+  return responseBody;
 };
 
 export const RegisterUserApi = async (formData: RegisterFormType) => {
@@ -28,9 +31,12 @@ export const RegisterUserApi = async (formData: RegisterFormType) => {
   });
 
   if (!response.ok) {
-    throw new Error("Failed to Register");
+    const errorData = await response.json();
+    throw new Error(errorData.message);
   }
-  return response.json();
+
+  const responseBody = await response.json();
+  return responseBody;
 };
 
 export const ResetUserApi = async (formData: ResetFormType) => {
@@ -44,8 +50,9 @@ export const LogoutUserapi = async () => {
   });
 
   if (!response.ok) {
-    throw new Error("Failed to logout");
+    throw new Error("Failed to log out user");
   }
 
-  return response.json();
+  const responseBody = await response.json();
+  return responseBody;
 };

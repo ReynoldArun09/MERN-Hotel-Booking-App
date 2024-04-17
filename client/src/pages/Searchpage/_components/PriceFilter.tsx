@@ -15,7 +15,7 @@ export default function PriceFilter({selectedPrice, onChange}: PriceFilterType) 
       </SelectTrigger>
       <SelectContent>
         <SelectGroup>
-          {[50, 100, 200, 300, 500].map((price) => (
+          {[1200, 2500, 3000, 3200, 5000].map((price) => (
             <SelectItem key={price} value={price.toString()}>
               {price}
             </SelectItem>

@@ -1,12 +1,10 @@
 import { FormProvider, useForm } from "react-hook-form";
-
 import TypeSection from "./TypeSection";
 import FacilitiesSection from "./FacilitiesSection";
 import GuestsSection from "./GuestsSection";
 import ImageSection from "./ImageSection";
 import DetailsSEction from "./DetailsSEction";
 import { useEffect } from "react";
-
 import { Button } from "@/components/ui/button";
 import { HotelFormData, HotelType } from "@/types.def";
 
@@ -65,6 +63,7 @@ const ManageHotelForm = ({ onSave, isLoading, hotel }: Props) => {
     });
 
     onSave(formData);
+    
   });
 
   return (

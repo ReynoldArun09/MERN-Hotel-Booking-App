@@ -28,16 +28,16 @@ export default function Detailspage() {
     <div className="space-y-6">
     <div>
       <span className="flex">
-        {Array.from({ length: hotel.starRating }).map(() => (
-          <Star className="fill-yellow-400" />
+        {Array.from({ length: hotel.starRating }).map((_, i) => (
+          <Star className="fill-yellow-400" key={i}/>
         ))}
       </span>
       <h1 className="text-3xl font-bold">{hotel.name}</h1>
     </div>
 
     <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
-      {hotel?.imageUrls?.map((image: string | undefined) => (
-        <div className="h-[300px]">
+      {hotel?.imageUrls?.map((image: string | undefined, index:number) => (
+        <div className="h-[300px]" key={index}>
           <img
             src={image}
             alt={hotel.name}
@@ -49,7 +49,7 @@ export default function Detailspage() {
 
     <div className="grid grid-cols-1 lg:grid-cols-4 gap-2">
       {hotel?.facilities.map((facility:string) => (
-        <div className="border-2 rounded-sm p-3">
+        <div className="border-2 rounded-sm p-3" key={facility}>
           {facility}
         </div>
       ))}

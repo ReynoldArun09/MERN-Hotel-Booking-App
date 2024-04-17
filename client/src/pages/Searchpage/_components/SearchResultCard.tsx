@@ -52,7 +52,7 @@ export default function SearchResultCard({ hotel }: SearchResultType) {
             </span>
           </div>
           <div className="flex flex-col items-end gap-1">
-            <span className="font-bold">£{hotel.pricePerNight} per night</span>
+            <span className="font-bold">Rs {hotel.pricePerNight} per night</span>
             <Button asChild variant={'outline'}>
               <Link
                 to={`/detail/${hotel._id}`}>

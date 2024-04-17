@@ -16,6 +16,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { LoginUserApi } from "../_api/AuthApi";
 import { toast } from "sonner";
 
+
 export default function LoginForm() {
   const queryClient = useQueryClient()
   const navigate = useNavigate()
@@ -28,10 +29,13 @@ export default function LoginForm() {
   const {mutate, isPending} = useMutation({
     mutationKey: ['loginuser'],
     mutationFn: LoginUserApi,
-    onSuccess: async() => {
+    onSuccess: async(success) => {
       await queryClient.invalidateQueries({queryKey: ["ValidateToken"]});
-      toast.success("Login successfull")
+      toast.success(success.message)
       navigate(location.state?.from?.pathname || "/");
+    },
+    onError: (error) => {
+      toast.error(error.message)
     }
   })
 

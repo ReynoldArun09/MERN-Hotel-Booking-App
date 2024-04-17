@@ -3,7 +3,8 @@ import { useFormContext } from "react-hook-form";
 import { ErrorMessage } from "@hookform/error-message";
 import { Label } from "@/components/ui/label";
 import { hotelFacilities } from "@/utils/hotelsOptions";
-import { HotelFormData } from "@/types";
+import { HotelFormData } from "@/types.def";
+
 
 
 const FacilitiesSection = () => {

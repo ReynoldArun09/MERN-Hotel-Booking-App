@@ -1,15 +1,14 @@
 import { Navigate, Route, Routes } from "react-router-dom";
+import { useAppContext } from "./context/AppContext";
 import Layout from "./Layout/Layout";
 import Homepage from "./pages/Homepage/Homepage";
 import Loginpage from "./pages/Authpage/Loginpage";
 import Resetpage from "./pages/Authpage/Resetpage";
 import Registerpage from "./pages/Authpage/Registerpage";
-import { useAppContext } from "./context/AppContext";
 import AddHotel from "./pages/Hotelpage/AddHotel";
 import MyHotels from "./pages/Hotelpage/MyHotels";
 import EditDetails from "./pages/Hotelpage/EditDetails";
 import Detailspage from "./pages/Hotelpage/Detailspage";
-
 import Searchpage from "./pages/Searchpage/Searchpage";
 import Bookingpage from "./pages/Bookingpage/Bookingpage";
 import MyBookingpage from "./pages/Bookingpage/MyBookingpage";

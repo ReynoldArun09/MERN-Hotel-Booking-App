@@ -23,7 +23,7 @@ export default function Header() {
             <Logout />
           </>
         ): (
-          <Button asChild className="w-20 rounded-[8px] font-bold">
+          <Button asChild className="w-20 rounded-[8px]">
           <Link to={'/login'}>Login</Link>
         </Button>
         )}

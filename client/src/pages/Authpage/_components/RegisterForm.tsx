@@ -31,10 +31,13 @@ export default function RegisterForm() {
   const {mutate, isPending} = useMutation({
     mutationKey: ['registeruser'],
     mutationFn: RegisterUserApi,
-    onSuccess: async() => {
+    onSuccess: async(success) => {
       await queryClient.invalidateQueries({queryKey: ["ValidateToken"]});
-      toast.success("User registered")
+      toast.success(success.message)
       navigate(location.state?.from?.pathname || "/");
+    },
+    onError: (error) => {
+      toast.error(error.message)
     }
   })
 
