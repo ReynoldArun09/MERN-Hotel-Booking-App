@@ -11,7 +11,7 @@ test('login user', async ({ page }) => {
   await page.locator("[name=password]").fill("123456")
   await page.getByRole("button", {name: "Login"}).click()
 
-  await expect(page.getByText("Login successfull")).toBeVisible()
+  await expect(page.getByText("User logged in successfully")).toBeVisible()
 
 });
 
@@ -30,7 +30,7 @@ test('register user', async({page}) => {
   await page.locator("[name=confirmPassword]").fill("123456");
 
   await page.getByRole('button', {name: "Register"}).click()
-  await expect(page.getByText("User registered")).toBeVisible()
+  await expect(page.getByText("User registered successfully")).toBeVisible()
 
 })
 
