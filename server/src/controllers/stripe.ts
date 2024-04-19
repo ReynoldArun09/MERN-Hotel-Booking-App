@@ -8,7 +8,7 @@ const stripe = new Stripe(process.env.STRIPE_API_KEY)
 
 
 export const BookingPaymentIntent = AsyncWrapper(async(req:Request, res:Response) => {
-    const {hotelId} = req.params
+    const hotelId = req.params.hotelId
     const {numberOfNights}  = req.body
     console.log('testing')
 
@@ -22,11 +22,12 @@ export const BookingPaymentIntent = AsyncWrapper(async(req:Request, res:Response
     const totalCost = hotel.pricePerNight * numberOfNights;
 
     const paymentIntent = await stripe.paymentIntents.create({
-        amount: totalCost,
-        currency: "inr",
+        amount: totalCost * 100,
+        currency: "INR",
         metadata: {
-            userId: req.userId,
-            hotelId
+            hotelId,
+            userId: req.userId
+            
         }
     })
 
@@ -35,7 +36,7 @@ export const BookingPaymentIntent = AsyncWrapper(async(req:Request, res:Response
             message: "Something went wrong"
         })
     }
-    const response: PaymnetIntentResponse = {
+    const response = {
         paymentIntentId: paymentIntent.id,
         clientSecret: paymentIntent.client_secret.toString(),
         totalCost
@@ -61,7 +62,7 @@ export const Bookings = AsyncWrapper(async(req:Request, res:Response) => {
           return res.status(400).json({message: "Something went wrong"})
         }
 
-    if(paymentIntent.status!== "succeeded") {
+    if(paymentIntent.status !== "succeeded") {
         return res.status(400).json({
             message: "Payment not succeeded"
         })

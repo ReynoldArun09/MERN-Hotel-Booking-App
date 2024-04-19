@@ -89,13 +89,16 @@ export const MyBookings = AsyncWrapper(
     const hotels = await Hotel.find({
       bookings: { $elemMatch: { userId: req.userId } },
     });
+
+    
   
     const results = hotels.map((hotel) => {
       const userBookings = hotel.bookings.filter(
         (booking) => booking.userId === req.userId
       );
-  
-      const hotelWithUserBookings: HotelModeltype = {
+
+      
+      const hotelWithUserBookings = {
         ...hotel.toObject(),
         bookings: userBookings,
       };

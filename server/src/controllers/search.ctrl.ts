@@ -7,7 +7,6 @@ import Hotel from "../models/hotel";
 export const SeachHotels = AsyncWrapper(async(req:Request, res:Response) => {
     const query = ConstructSearchQuery(req.query)
 
-    console.log(query)
     let sortOptions = {}
     
     switch (req.query.sortOption) {

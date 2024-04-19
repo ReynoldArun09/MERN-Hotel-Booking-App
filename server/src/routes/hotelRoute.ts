@@ -15,16 +15,18 @@ const upload = multer({
 
 const hotelRoutes = Router()
 
+hotelRoutes.get("/mybookings", AuthMiddleware, MyBookings);
 hotelRoutes.get('/search', SeachHotels)
 hotelRoutes.get('/', GetAllHotels)
-hotelRoutes.post('/add', AuthMiddleware, upload.array("imageFiles", 6), CreateHotel)
 hotelRoutes.get('/users', AuthMiddleware, GetAllUserHotels)
-hotelRoutes.put("/:hotelId", AuthMiddleware, upload.array("imageFiles"), UpdateHotel);
-hotelRoutes.get("/user/:id", AuthMiddleware, GetUserHotelById);
 hotelRoutes.get("/:id", GetHotelById);
-hotelRoutes.post("/:hotelId/bookings/payment-intent", AuthMiddleware, BookingPaymentIntent);
+hotelRoutes.post('/add', AuthMiddleware, upload.array("imageFiles", 6), CreateHotel)
+hotelRoutes.get("/user/:id", AuthMiddleware, GetUserHotelById);
+hotelRoutes.put("/:hotelId", AuthMiddleware, upload.array("imageFiles"), UpdateHotel);
 hotelRoutes.post("/:hotelId/bookings", AuthMiddleware, Bookings);
-hotelRoutes.post("/mybookings", AuthMiddleware, MyBookings);
+hotelRoutes.post("/:hotelId/bookings/payment-intent", AuthMiddleware, BookingPaymentIntent);
+
+
 
 
 export default hotelRoutes

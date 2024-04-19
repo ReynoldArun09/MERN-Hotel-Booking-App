@@ -11,7 +11,7 @@ export default function AddHotel() {
     mutationFn: CreateHotel,
     onSuccess: () => {
       toast.success("Hotel created");
-      navigate("/hotels");
+      navigate("/my-hotels");
     },
     onError: (error) => {
       toast.error(error.message);

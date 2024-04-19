@@ -27,47 +27,49 @@ export default function BookingForm({currentUser, paymentIntent}: BookingFormPro
   const navigate = useNavigate()
 
 
-  const { register, handleSubmit } = useForm<BookingFormData>({
+  const { handleSubmit, register } = useForm<BookingFormData>({
     defaultValues: {
-        firstName: currentUser.firstName,
-        lastName: currentUser.lastName,
-        email: currentUser.email,
-        adultCount: search.adultCount,
-        childCount: search.childCount,
-        checkIn: search.checkIn.toISOString(),
-        checkOut: search.checkOut.toISOString(),
-        hotelId: hotelId,
-        totalCost: paymentIntent.totalCost,
-        paymentIntentId: paymentIntent.paymentIntentId
+      firstName: currentUser.firstName,
+      lastName: currentUser.lastName,
+      email: currentUser.email,
+      adultCount: search.adultCount,
+      childCount: search.childCount,
+      checkIn: search.checkIn.toISOString(),
+      checkOut: search.checkOut.toISOString(),
+      hotelId: hotelId,
+      totalCost: paymentIntent.totalCost,
+      paymentIntentId: paymentIntent.paymentIntentId,
+    },
+  });
+
+
+
+  const { mutate: bookRoom, isPending } = useMutation({
+    mutationFn: createRoomBooking,
+    onSuccess: () => {
+      toast.success("Room booked successfully")
+      navigate("/my-bookings")
+    },
+    onError: (error) => {
+      toast.error(error.message)
     }
   });
 
-  const {mutate, isPending} = useMutation({
-    mutationFn: createRoomBooking,
-    onSuccess: () => {
-      toast.success("Booking Created Successfully")
-      navigate('/bookings')
-    },
-    onError: () => {
-      toast.error("Booking Failed")
+  const onSubmit = async (formData: BookingFormData) => {
+    if (!stripe || !elements) {
+      return;
     }
-  })
 
-  const onSubmit = async(formData: BookingFormData) => {
-    if(!stripe || !elements) {
-      return
-    }
-    
     const result = await stripe.confirmCardPayment(paymentIntent.clientSecret, {
       payment_method: {
-        card: elements.getElement(CardElement) as StripeCardElement
-      }
-    })
+        card: elements.getElement(CardElement) as StripeCardElement,
+      },
+    });
 
-    if(result.paymentIntent?.status === 'succeeded') {
-        mutate({...formData, paymentIntentId:result.paymentIntent.id})
+    if (result.paymentIntent?.status === "succeeded") {
+      bookRoom({ ...formData, paymentIntentId: result.paymentIntent.id });
     }
-  }
+  };
 
 
   return (

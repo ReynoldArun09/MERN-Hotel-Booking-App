@@ -15,7 +15,19 @@ export default function MyHotels() {
   })
 
   if (!hotelData) {
-    return <span>No Hotels found</span>;
+    return <div>
+      <h1 className="text-5xl font-bold text-center">My Hotels</h1>
+      <div className="flex justify-between items-center">
+        <span className="text-3xl">No Hotels found</span>
+        <Button asChild size={"lg"} className="font-bold bg-foreground rounded-[8px]">
+       <Link
+          to="/add-hotel">
+           
+          <File className="mr-1"/> Add Hotel
+        </Link>
+       </Button>
+      </div>
+    </div>
   }
 
   return (
