@@ -51,7 +51,7 @@ export default function BookingForm({currentUser, paymentIntent}: BookingFormPro
       navigate("/my-bookings")
     },
     onError: (error) => {
-      toast.error(error.message)
+      console.log(error)
     }
   });
 
@@ -65,6 +65,7 @@ export default function BookingForm({currentUser, paymentIntent}: BookingFormPro
         card: elements.getElement(CardElement) as StripeCardElement,
       },
     });
+
 
     if (result.paymentIntent?.status === "succeeded") {
       bookRoom({ ...formData, paymentIntentId: result.paymentIntent.id });

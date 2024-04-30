@@ -1,6 +1,7 @@
 
-import { BASE_URL } from "@/main"
+
 import { BookingFormData, HotelType, PaymnetIntentResponse, UserType } from "@/types.def"
+import { BASE_URL } from "@/utils/constants"
 
 
 export const fetchCurrentUser = async(): Promise<UserType> => {
@@ -32,14 +33,13 @@ export const createPaymentIntent = async (
       }
     );
   
-    if(!response.ok) {
-      const responseError = await response.json()
-      console.log(responseError.message)
-      throw new Error(responseError.message)
-  }
+    const responseBody = await response.json()
 
-    const responseBody = response.json()
-    console.log(responseBody)
+
+    if(!response.ok) {
+        throw new Error(responseBody.message)
+    }
+
     return responseBody
   };
   
@@ -56,14 +56,13 @@ export const createPaymentIntent = async (
       }
     );
   
-    if(!response.ok) {
-      const responseError = await response.json()
-      console.log(responseError.message)
-      throw new Error(responseError.message)
-  }
+    const responseBody = await response.json()
+   
 
-    const responseBody = response.json()
-    console.log(responseBody)
+    if(!response.ok) {
+        throw new Error(responseBody.message)
+    }
+
     return responseBody
   };
 
@@ -72,12 +71,12 @@ export const createPaymentIntent = async (
         method: "GET",
         credentials: "include"
     })
+
+    const responseBody = await response.json()
+
     if(!response.ok) {
-        const responseError = await response.json()
-        console.log(responseError)
-        throw new Error(responseError.message)
+        throw new Error(responseBody.message)
     }
 
-    const responseBody = response.json()
     return responseBody
 }

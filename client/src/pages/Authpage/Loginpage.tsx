@@ -22,7 +22,7 @@ export default function Loginpage() {
                 Or continue with
               </span>
             </div>
-          </div>
+          </div> 
           <LoginForm />
         </CardContent>
         <CardFooter className="flex items-center justify-between">

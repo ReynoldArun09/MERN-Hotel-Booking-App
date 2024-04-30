@@ -3,6 +3,7 @@ import AsyncWrapper from "../utils/AsyncWrapper";
 import { HotelModeltype } from "../../types.def";
 import uploadImages from "./uploadImages";
 import Hotel from "../models/hotel";
+import { ErrorMessage, HttpStatusCode } from "../helper/Enum";
 
 export const CreateHotel = AsyncWrapper(async (req: Request, res: Response) => {
   const imageFiles = req.files as Express.Multer.File[];
@@ -48,7 +49,7 @@ export const UpdateHotel = AsyncWrapper(async (req: Request, res: Response) => {
   );
 
   if (!hotel) {
-    return res.status(404).json({ message: "Hotel not found" });
+    return res.status(HttpStatusCode.BAD_REQUEST).json({message: ErrorMessage.HOTEL_NOT_FOUND});
   }
 
   const files = req.files as Express.Multer.File[];

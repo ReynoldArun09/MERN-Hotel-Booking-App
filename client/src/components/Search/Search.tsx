@@ -41,7 +41,7 @@ export default function Search() {
   }
 
   return (
-    <form className="p-5 rounded shadow-lg border-[2px] grid grid-cols-2 lg:grid-cols-3 2xl:grid-cols-5 items-center gap-4">
+    <form className="p-5 rounded shadow-lg border-[2px] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-5 items-center gap-4">
       <div className="flex rounded-[4px] flex-row items-center flex-1 bg-white">
         <Input
           value={destination}

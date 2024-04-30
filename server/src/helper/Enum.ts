@@ -19,5 +19,8 @@ export enum HttpStatusCode {
     LOGIN_FAILURE = "Invalid email or password",
     USER_NOT_FOUND = "Invalid email or password",
     INVALID_TOKEN = "Invalid token",
+    HOTEL_NOT_FOUND = 'hotel not found',
+    INVALID_PAYMENT_INTENT = 'invalid payment intent',
+    PAYMENT_FAILED = 'payment did not succeed'
   }
   

@@ -7,7 +7,8 @@ import { fetchMyHotelById } from "../Hotelpage/_api/HotelApi";
 import { useEffect, useState } from "react";
 import BookingForm from "./_form/BookingForm";
 import { Elements } from "@stripe/react-stripe-js";
-import { stripePromise } from "@/main";
+import { stripePromise } from "@/utils/constants";
+
 
 
 

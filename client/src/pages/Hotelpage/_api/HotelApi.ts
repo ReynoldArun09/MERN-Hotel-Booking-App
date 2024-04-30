@@ -1,5 +1,6 @@
-import { BASE_URL } from "@/main";
+
 import { HotelType } from "@/types.def";
+import { BASE_URL } from "@/utils/constants";
 
 export const CreateHotel = async (formData: FormData) => {
   const response = await fetch(`${BASE_URL}/hotel/add`, {
@@ -55,22 +56,25 @@ export const UpdateMyHotelById = async (hotelFormData: FormData) => {
     }
   );
 
+  const responseBody = await response.json();
+
   if (!response.ok) {
-    const errorData = await response.json();
-    throw new Error(errorData.message);
+    throw new Error(responseBody.message);
   }
 
-  const responsebody = await response.json();
-  return responsebody;
+  
+  return responseBody;
 };
 
 export const GetHotelById = async (hotelId: string) => {
   const response = await fetch(`${BASE_URL}/hotel/${hotelId}`);
 
+  const responseBody = await response.json();
+
   if (!response.ok) {
-    throw new Error("Error fetching hotel");
+    throw new Error(responseBody.message);
   }
 
-  const responseBody = await response.json();
+  
   return responseBody;
 };

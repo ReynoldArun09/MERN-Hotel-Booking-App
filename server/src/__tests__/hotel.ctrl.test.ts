@@ -18,14 +18,6 @@ const requestBody = {
   lastUpdated: Date.now(),
 };
 
-// describe("POST api/v1/hotel", () => {
-//   it("should create hotel and return 200 status", async () => {
-//     const res = await request(app).post("/api/hotel/add").send(requestBody);
-//     expect(200)
-//     // need fix
-//   });
-// });
-
 
 describe("GET api/v1/hotel", () => {
   it("should create hotel and return 200 status", async () => {

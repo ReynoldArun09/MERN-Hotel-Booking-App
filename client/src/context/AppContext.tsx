@@ -1,4 +1,5 @@
-import { BASE_URL } from "@/main";
+
+import { BASE_URL } from "@/utils/constants";
 import { useQuery } from "@tanstack/react-query";
 import { createContext, useContext } from "react";
 

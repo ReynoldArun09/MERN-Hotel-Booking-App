@@ -1,4 +1,5 @@
-import { BASE_URL } from "@/main";
+
+import { BASE_URL } from "@/utils/constants";
 import { LoginFormType, RegisterFormType, ResetFormType } from "../_schema";
 
 export const LoginUserApi = async (formData: LoginFormType) => {
@@ -11,12 +12,13 @@ export const LoginUserApi = async (formData: LoginFormType) => {
     body: JSON.stringify(formData),
   });
 
+  const responseBody = await response.json();
+
   if (!response.ok) {
-    const errorData = await response.json();
-    throw new Error(errorData.message);
+    throw new Error(responseBody.message);
   }
 
-  const responseBody = await response.json();
+  
   return responseBody;
 };
 
@@ -30,12 +32,13 @@ export const RegisterUserApi = async (formData: RegisterFormType) => {
     body: JSON.stringify(formData),
   });
 
+  const responseBody = await response.json();
+
   if (!response.ok) {
-    const errorData = await response.json();
-    throw new Error(errorData.message);
+    throw new Error(responseBody.message);
   }
 
-  const responseBody = await response.json();
+  
   return responseBody;
 };
 
@@ -49,10 +52,12 @@ export const LogoutUserapi = async () => {
     credentials: "include",
   });
 
+  const responseBody = await response.json();
+
   if (!response.ok) {
-    throw new Error("Failed to log out user");
+    throw new Error(responseBody.message);
   }
 
-  const responseBody = await response.json();
+  
   return responseBody;
 };

@@ -7,8 +7,8 @@ export default function Header() {
   const {isLoggedIn} = useAppContext()
   return (
     <header className="py-6 border-b-[1px] font-bold">
-     <section className="container mx-auto flex justify-between">
-     <span className="text-3xl tracking-wide">
+     <section className="container mx-auto flex items-center justify-between">
+     <span className="text-xl lg:text-3xl tracking-wide">
         <Link to={'/'}>Bookings.com</Link>
       </span>
       <span className="flex gap-3 items-center">

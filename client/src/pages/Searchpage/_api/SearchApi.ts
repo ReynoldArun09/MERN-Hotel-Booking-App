@@ -1,5 +1,6 @@
-import { BASE_URL } from "@/main";
+
 import { HotelSearchResponse, SearchParams } from "@/types.def";
+import { BASE_URL } from "@/utils/constants";
 
 
 export const searchHotels = async (

@@ -1,4 +1,4 @@
-import { Navigate, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import { useAppContext } from "./context/AppContext";
 import Layout from "./Layout/Layout";
 import Homepage from "./pages/Homepage/Homepage";
@@ -17,6 +17,7 @@ import MyBookingpage from "./pages/Bookingpage/MyBookingpage";
 export default function App() {
   const {isLoggedIn} = useAppContext()
   return (
+   <BrowserRouter>
     <Routes>
       <Route path="/" element={<Layout />}>
         <Route index element={<Homepage />} />
@@ -32,5 +33,6 @@ export default function App() {
         <Route path="/hotel/:hotelId/booking" element={isLoggedIn ? <Bookingpage />: <Navigate to="/"/>} />
       </Route>
     </Routes>
+   </BrowserRouter>
   );
 }
