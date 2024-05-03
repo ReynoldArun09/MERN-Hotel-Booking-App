@@ -64,7 +64,7 @@ import { useAppContext } from "@/context/AppContext";
             <DatePicker
               required
               selected={checkIn}
-              onChange={(date) => setValue("checkIn", date as Date)}
+              onChange={(date) => setValue("checkIn", date as Date || null)}
               selectsStart
               startDate={checkIn}
               endDate={checkOut}

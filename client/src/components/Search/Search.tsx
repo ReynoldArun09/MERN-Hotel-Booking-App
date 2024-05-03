@@ -78,7 +78,7 @@ export default function Search() {
       <div>
         <DatePicker
           selected={checkIn}
-          onChange={(date) => setCheckIn(date as Date)}
+          onChange={(date) => setCheckIn(date as Date || null)}
           selectsStart
           startDate={checkIn}
           endDate={checkOut}
@@ -92,7 +92,7 @@ export default function Search() {
       <div>
         <DatePicker
           selected={checkOut}
-          onChange={(date) => setCheckOut(date as Date)}
+          onChange={(date) => setCheckOut(date as Date || null)}
           selectsStart
           startDate={checkIn}
           endDate={checkOut}
