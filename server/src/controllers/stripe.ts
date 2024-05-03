@@ -20,16 +20,6 @@ export const BookingPaymentIntent = AsyncWrapper(async (req: Request, res: Respo
 
   const paymentIntent = await stripe.paymentIntents.create({
     description: "Booking.com",
-    shipping: {
-      name: "testing",
-      address: {
-        line1: "510 Townsend St",
-        postal_code: "98140",
-        city: "San Francisco",
-        state: "CA",
-        country: "US",
-      },
-    },
     amount: totalCost * 100,
     currency: "inr",
     metadata: {
@@ -44,7 +34,7 @@ export const BookingPaymentIntent = AsyncWrapper(async (req: Request, res: Respo
       message: "Something went wrong",
     });
   }
-  const response = {
+  const response :PaymnetIntentResponse = {
     paymentIntentId: paymentIntent.id,
     clientSecret: paymentIntent.client_secret.toString(),
     totalCost,
