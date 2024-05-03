@@ -1,6 +1,6 @@
 import { Schema, model } from "mongoose";
-import { UserModelType } from "../../types.def";
-import bcrypt from 'bcryptjs'
+import { UserModelType } from "../types.def";
+import bcrypt from "bcryptjs";
 
 const userSchema = new Schema<UserModelType>({
   email: {
@@ -28,6 +28,5 @@ userSchema.pre("save", async function (next) {
   }
   next();
 });
-
 
 export default model<UserModelType>("User", userSchema);

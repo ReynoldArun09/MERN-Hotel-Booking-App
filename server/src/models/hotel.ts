@@ -1,6 +1,5 @@
-import {Schema, model} from "mongoose";
-import { BookingType, HotelModeltype } from "../../types.def";
-
+import { Schema, model } from "mongoose";
+import { BookingType, HotelModeltype } from "../types.def";
 
 const bookingSchema = new Schema<BookingType>({
   firstName: { type: String, required: true },
@@ -14,10 +13,9 @@ const bookingSchema = new Schema<BookingType>({
   totalCost: { type: Number, required: true },
 });
 
-
 const hotelSchema = new Schema<HotelModeltype>({
-  userId: {type: String,required: true},
-  name: {type: String,required: true},
+  userId: { type: String, required: true },
+  name: { type: String, required: true },
   city: { type: String, required: true },
   country: { type: String, required: true },
   description: { type: String, required: true },
@@ -29,7 +27,7 @@ const hotelSchema = new Schema<HotelModeltype>({
   starRating: { type: Number, required: true, min: 1, max: 5 },
   imageUrls: [{ type: String, required: true }],
   lastUpdated: { type: Date, required: true },
-  bookings: [bookingSchema]
+  bookings: [bookingSchema],
 });
 
 const Hotel = model<HotelModeltype>("Hotel", hotelSchema);

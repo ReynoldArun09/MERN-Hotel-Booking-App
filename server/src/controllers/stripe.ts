@@ -2,7 +2,7 @@ import Stripe from "stripe";
 import AsyncWrapper from "../utils/AsyncWrapper";
 import { Request, Response } from "express";
 import Hotel from "../models/hotel";
-import { BookingType, PaymnetIntentResponse } from "../../types.def";
+import { BookingType, PaymnetIntentResponse } from "../types.def";
 import { ErrorMessage, HttpStatusCode } from "../helper/Enum";
 
 const stripe = new Stripe(process.env.STRIPE_API_KEY);
@@ -13,7 +13,7 @@ export const BookingPaymentIntent = AsyncWrapper(async (req: Request, res: Respo
 
   const hotel = await Hotel.findById(hotelId);
   if (!hotel) {
-    return res.status(HttpStatusCode.BAD_REQUEST).json({message: ErrorMessage.HOTEL_NOT_FOUND});
+    return res.status(HttpStatusCode.BAD_REQUEST).json({ message: ErrorMessage.HOTEL_NOT_FOUND });
   }
 
   const totalCost = hotel.pricePerNight * numberOfNights;
@@ -34,7 +34,7 @@ export const BookingPaymentIntent = AsyncWrapper(async (req: Request, res: Respo
       message: "Something went wrong",
     });
   }
-  const response :PaymnetIntentResponse = {
+  const response: PaymnetIntentResponse = {
     paymentIntentId: paymentIntent.id,
     clientSecret: paymentIntent.client_secret.toString(),
     totalCost,
@@ -48,15 +48,15 @@ export const Bookings = AsyncWrapper(async (req: Request, res: Response) => {
   const paymentIntent = await stripe.paymentIntents.retrieve(paymentIntentId as string);
 
   if (!paymentIntent) {
-    return res.status(HttpStatusCode.BAD_REQUEST).json({message: ErrorMessage.INVALID_PAYMENT_INTENT});
+    return res.status(HttpStatusCode.BAD_REQUEST).json({ message: ErrorMessage.INVALID_PAYMENT_INTENT });
   }
 
   if (paymentIntent.metadata.hotelId !== req.params.hotelId || paymentIntent.metadata.userId !== req.userId) {
-    return res.status(HttpStatusCode.BAD_REQUEST).json({message: ErrorMessage.INVALID_PAYMENT_INTENT});
+    return res.status(HttpStatusCode.BAD_REQUEST).json({ message: ErrorMessage.INVALID_PAYMENT_INTENT });
   }
 
   if (paymentIntent.status !== "succeeded") {
-    return res.status(HttpStatusCode.BAD_REQUEST).json({message: ErrorMessage.PAYMENT_FAILED});
+    return res.status(HttpStatusCode.BAD_REQUEST).json({ message: ErrorMessage.PAYMENT_FAILED });
   }
 
   const newBooking: BookingType = {
@@ -74,7 +74,7 @@ export const Bookings = AsyncWrapper(async (req: Request, res: Response) => {
   );
 
   if (!hotel) {
-    return res.status(HttpStatusCode.BAD_REQUEST).json({message: ErrorMessage.HOTEL_NOT_FOUND});
+    return res.status(HttpStatusCode.BAD_REQUEST).json({ message: ErrorMessage.HOTEL_NOT_FOUND });
   }
 
   await hotel.save();
