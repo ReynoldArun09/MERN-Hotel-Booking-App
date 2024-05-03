@@ -3,6 +3,7 @@
 /server/.env
 /server/.env.e2e
 /server/build
+/server/dist
 /server/coverage
 
 # playwright
