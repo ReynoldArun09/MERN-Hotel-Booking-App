@@ -7,6 +7,7 @@ import userRouter from './routes/userRoute';
 import 'dotenv/config'
 import ErrorMiddleware, { notFoundHandler } from './middleware/ErrorMiddleware';
 import hotelRoutes from './routes/hotelRoute';
+import path from 'path'
 
 export const app = express()
 
@@ -21,6 +22,8 @@ app.use(expressMongoSanitize())
 app.use(express.json()) 
 app.use(express.urlencoded({ extended: true }))
 
+
+app.use(express.static(path.join(__dirname, '../../client/dist')));
 
 app.use('/api/user', userRouter)
 app.use('/api/hotel', hotelRoutes)
