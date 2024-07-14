@@ -21,9 +21,9 @@ export default function LoginForm() {
   const queryClient = useQueryClient()
   const navigate = useNavigate()
   const location = useLocation()
-  const form = useForm<LoginFormType>({resolver: zodResolver(LoginSchema), defaultValues:{
-    email: '',
-    password: ''
+   const form = useForm<LoginFormType>({resolver: zodResolver(LoginSchema), defaultValues:{
+    email: 'testing@gmail.com',
+    password: '123456'
   }});
 
   const {mutate, isPending} = useMutation({

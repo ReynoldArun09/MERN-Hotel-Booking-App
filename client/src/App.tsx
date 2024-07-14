@@ -12,27 +12,61 @@ import Detailspage from "./pages/Hotelpage/Detailspage";
 import Searchpage from "./pages/Searchpage/Searchpage";
 import Bookingpage from "./pages/Bookingpage/Bookingpage";
 import MyBookingpage from "./pages/Bookingpage/MyBookingpage";
-
+import LoadingSpinner from "./components/LoadingSpinner/LoadingSpinner";
 
 export default function App() {
-  const {isLoggedIn} = useAppContext()
+  const { isLoggedIn, isLoading } = useAppContext();
+
+  if (isLoading) {
+    return (
+      <main className="h-screen flex justify-center items-center">
+        <LoadingSpinner />
+        <h1 className="ml-10">Please wait while we start the backend server.</h1>
+      </main>
+    );
+  }
+
   return (
-   <BrowserRouter>
-    <Routes>
-      <Route path="/" element={<Layout />}>
-        <Route index element={<Homepage />} />
-        <Route path="/login" element={!isLoggedIn ? <Loginpage />: <Navigate to="/"/>} />
-        <Route path="/register" element={!isLoggedIn ? <Registerpage />: <Navigate to="/"/>} />
-        <Route path="/reset-password" element={!isLoggedIn ? <Resetpage />: <Navigate to="/"/>} />
-        <Route path="/add-hotel" element={isLoggedIn ? <AddHotel />: <Navigate to="/"/>} />
-        <Route path="/my-hotels" element={isLoggedIn ? <MyHotels />: <Navigate to="/"/>} />
-        <Route path="my-bookings" element={isLoggedIn ? <MyBookingpage />: <Navigate to="/"/>} />
-        <Route path="/edit-hotel/:hotelId" element={isLoggedIn ? <EditDetails />: <Navigate to="/"/>} />
-        <Route path="/detail/:hotelId" element={<Detailspage />} />
-        <Route path="/search" element={<Searchpage />} />
-        <Route path="/hotel/:hotelId/booking" element={isLoggedIn ? <Bookingpage />: <Navigate to="/"/>} />
-      </Route>
-    </Routes>
-   </BrowserRouter>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Homepage />} />
+          <Route
+            path="/login"
+            element={!isLoggedIn ? <Loginpage /> : <Navigate to="/" />}
+          />
+          <Route
+            path="/register"
+            element={!isLoggedIn ? <Registerpage /> : <Navigate to="/" />}
+          />
+          <Route
+            path="/reset-password"
+            element={!isLoggedIn ? <Resetpage /> : <Navigate to="/" />}
+          />
+          <Route
+            path="/add-hotel"
+            element={isLoggedIn ? <AddHotel /> : <Navigate to="/" />}
+          />
+          <Route
+            path="/my-hotels"
+            element={isLoggedIn ? <MyHotels /> : <Navigate to="/" />}
+          />
+          <Route
+            path="my-bookings"
+            element={isLoggedIn ? <MyBookingpage /> : <Navigate to="/" />}
+          />
+          <Route
+            path="/edit-hotel/:hotelId"
+            element={isLoggedIn ? <EditDetails /> : <Navigate to="/" />}
+          />
+          <Route path="/detail/:hotelId" element={<Detailspage />} />
+          <Route path="/search" element={<Searchpage />} />
+          <Route
+            path="/hotel/:hotelId/booking"
+            element={isLoggedIn ? <Bookingpage /> : <Navigate to="/" />}
+          />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 }

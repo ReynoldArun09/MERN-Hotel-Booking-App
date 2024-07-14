@@ -6,6 +6,7 @@ import { createContext, useContext } from "react";
 
 export type AppContextType = {
   isLoggedIn: boolean;
+  isLoading : boolean
 
 };
 
@@ -20,7 +21,7 @@ export const AppContextProvider = ({
 }: {
   children: React.ReactNode;
 }) => {
-  const { isError } = useQuery({
+  const { isError, isLoading } = useQuery({
     queryKey: ["ValidateToken"],
     queryFn: async () => {
       const response = await fetch(`${BASE_URL}/user/validate-user`, {
@@ -38,8 +39,10 @@ export const AppContextProvider = ({
 
 
 
+
+
   return (
-    <AppContext.Provider value={{ isLoggedIn: !isError}}>
+    <AppContext.Provider value={{ isLoggedIn: !isError, isLoading}}>
       {children}
     </AppContext.Provider>
   );
